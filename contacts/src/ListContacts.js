@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import escapeRegExp from 'escape-string-regexp'
 import sortBy from 'sort-by'
@@ -39,6 +40,7 @@ class ListContacts extends Component {
             valuie={this.state.query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
+          <Link to='/create' className='addContact'>Add Contact</Link>
         </div>
 
         {showingContacts.length !== contacts.length && (
@@ -52,7 +54,7 @@ class ListContacts extends Component {
           {showingContacts.map( (contact) => (
             <li key={contact.id} className='contact-list-item'>
               <div className='contact-avatar' style={{
-                  //backgroundImage: `url(${contact.avatarURL})`
+                  backgroundImage: `url(${contact.avatarURL})`
                 }} />
               <div className='contact-details'>
                 <p>{contact.name}</p>
