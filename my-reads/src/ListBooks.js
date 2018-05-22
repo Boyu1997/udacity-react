@@ -18,8 +18,8 @@ class ListBooks extends Component {
             {this.props.books.map((book) => (
               <li key={book.title}>
                 <Book title={book.title}
-                  author={book.author}
-                  url={book.url}
+                  author={book.authors[0]}
+                  url={book.imageLinks.smallThumbnail}
                 />
               </li>
             ))}
