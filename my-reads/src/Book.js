@@ -4,16 +4,22 @@ import BookChanger from './BookChanger.js'
 
 class Book extends Component {
   static propTypes = {
+    id: PropTypes.isRequired,
     title: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
+    shelf: PropTypes.string.isRequired,
+    onUpdateShelf: PropTypes.func.isRequired
   }
   render () {
     return (
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.url})` }}></div>
-          <BookChanger />
+          <BookChanger id={this.props.id}
+            shelf={this.props.shelf}
+            onUpdateShelf={this.props.onUpdateShelf}
+          />
         </div>
         <div className="book-title">{this.props.title}</div>
         <div className="book-authors">{this.props.author}</div>
