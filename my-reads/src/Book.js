@@ -17,7 +17,6 @@ class Book extends Component {
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.url})` }}></div>
           <BookChanger id={this.props.id}
-            shelf={this.props.shelf}
             onUpdateShelf={this.props.onUpdateShelf}
           />
         </div>

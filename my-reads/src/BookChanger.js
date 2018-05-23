@@ -4,19 +4,29 @@ import * as BooksAPI from './BooksAPI.js'
 
 class BookChanger extends Component {
   static propTypes = {
+    id: PropTypes.string.isRequired,
     shelf: PropTypes.string,
     onUpdateShelf: PropTypes.func.isRequired
   }
   state = {
     shelf: ""
   }
-  render () {
-    if (this.state.shelf === undefined) {
-      this.state.shelf = "none"
+  componentDidMount() {
+    if (this.props.shelf === undefined) {
+      this.setState({ shelf: "none"})
+      BooksAPI.getAll().then((books) => {
+        books.map((book) => {
+          if (book.id === this.props.id) {
+            this.setState({ shelf: book.shelf })
+          }
+        })
+      })
     }
     else {
-      this.state.shelf = this.props.shelf
+      this.setState({ shelf: this.props.shelf })
     }
+  }
+  render () {
     return (
       <div className="book-shelf-changer">
         <select value={this.state.shelf}
