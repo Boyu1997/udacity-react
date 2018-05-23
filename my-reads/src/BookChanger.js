@@ -4,21 +4,28 @@ import * as BooksAPI from './BooksAPI.js'
 
 class BookChanger extends Component {
   static propTypes = {
-    shelf: PropTypes.string.isRequired,
+    shelf: PropTypes.string,
     onUpdateShelf: PropTypes.func.isRequired
   }
   state = {
-    shelf: this.props.shelf
+    shelf: ""
   }
   render () {
+    if (this.state.shelf === undefined) {
+      this.state.shelf = "none"
+    }
+    else {
+      this.state.shelf = this.props.shelf
+    }
     return (
       <div className="book-shelf-changer">
-        <select onChange={(event) => this.props.onUpdateShelf(this.props.id, event.target.value)}>
-          <option value="none" disabled>Move to...</option>
-          <option value="currentlyReading" selected={this.state.shelf === "currentlyReading"}>Currently Reading</option>
-          <option value="wantToRead" selected={this.state.shelf === "wantToRead"}>Want to Read</option>
-          <option value="read" selected={this.state.shelf === "read"}>Read</option>
-          <option value="none" selected={this.state.shelf === undefined}>None</option>
+        <select value={this.state.shelf}
+          onChange={(event) => this.props.onUpdateShelf(this.props.id, event.target.value)}>
+          <option value="disabled" disabled>Move to...</option>
+          <option value="currentlyReading">Currently Reading</option>
+          <option value="wantToRead">Want to Read</option>
+          <option value="read">Read</option>
+          <option value="none">None</option>
         </select>
       </div>
     )

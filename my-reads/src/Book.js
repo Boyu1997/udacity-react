@@ -4,11 +4,11 @@ import BookChanger from './BookChanger.js'
 
 class Book extends Component {
   static propTypes = {
-    id: PropTypes.isRequired,
+    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
+    author: PropTypes.array.isRequired,
     url: PropTypes.string.isRequired,
-    shelf: PropTypes.string.isRequired,
+    shelf: PropTypes.string,
     onUpdateShelf: PropTypes.func.isRequired
   }
   render () {

@@ -14,11 +14,28 @@ class SearchBooks extends Component {
   }
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
-    BooksAPI.search(query.trim()).then((books) => {
-      this.setState({ books })
-    })
+    if (query.trim() === "") {
+      this.setState({ books: [] })
+    }
+    else {
+      BooksAPI.search(query.trim()).then((books) => {
+        if (books === undefined || books.error === "empty query") {
+          books = []
+        }
+        this.setState({ books })
+      })
+    }
   }
   render () {
+    this.state.books.map((book) => {
+      if (book.imageLinks === undefined) {
+        book.url = "N/A"
+      }
+      else {
+        book.url = book.imageLinks.smallThumbnail
+      }
+    })
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -41,19 +58,21 @@ class SearchBooks extends Component {
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid">
-            {this.state.books.map((book) => (
-              <li key={book.id}>
-                <Book id={book.id}
-                  title={book.title}
-                  author={book.authors}
-                  url={book.imageLinks.smallThumbnail}
-                  shelf={book.shelf}
-                  onUpdateShelf={this.props.onUpdateShelf}
-                />
-              </li>
-            ))}
-          </ol>
+          {this.state.books.length !== 0 && (
+            <ol className="books-grid">
+              {this.state.books.map((book) => (
+                <li key={book.id}>
+                  <Book id={book.id}
+                    title={book.title}
+                    author={book.authors}
+                    url={book.url}
+                    shelf={book.shelf}
+                    onUpdateShelf={this.props.onUpdateShelf}
+                  />
+                </li>
+              ))}
+            </ol>
+          )}
         </div>
       </div>
     )
