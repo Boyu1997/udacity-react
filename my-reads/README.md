@@ -3,6 +3,15 @@
 This is the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project.
 .
 
+## Installation
+Install dependencies, run:
+```
+npm install
+```
+To start the project, run:
+```
+npm start
+```
 
 ## Directory Tree
 ```bash
