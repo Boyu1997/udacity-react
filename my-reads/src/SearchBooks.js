@@ -13,7 +13,7 @@ class SearchBooks extends Component {
     books: []
   }
   updateQuery = (query) => {
-    this.setState({ query: query.trim() })
+    this.setState({ query: query })
     if (query.trim() === "") {
       this.setState({ books: [] })
     }
