@@ -11,7 +11,18 @@ class Book extends Component {
     shelf: PropTypes.string,
     onUpdateShelf: PropTypes.func.isRequired
   }
+  state = {
+    books: []
+  }
   render () {
+    this.state.books.map((book) => {
+      if (book.imageLinks === undefined) {
+        book.url = "N/A"
+      }
+      else {
+        book.url = book.imageLinks.smallThumbnail
+      }
+    })
     return (
       <div className="book">
         <div className="book-top">
