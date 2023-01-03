@@ -1,8 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Routes, Route } from 'react-router-dom'
+
 import { handleInitialData } from '../actions/shared'
 
-import ConnectedQuestions from './Questions'
+import ConnectedHomePage from './HomePage'
+import ConnectedQuestionPage from './QuestionPage'
 
 import './App.css'
 
@@ -20,9 +23,10 @@ class App extends React.Component {
 
     return (
       <div>
-        <h1>would-you-rather</h1>
-        
-        <ConnectedQuestions />
+        <Routes>
+          <Route path="/" element={<ConnectedHomePage />} />
+          <Route path="/question/:questionId" element={<ConnectedQuestionPage />} />
+        </Routes>        
       </div>
     )
   }
