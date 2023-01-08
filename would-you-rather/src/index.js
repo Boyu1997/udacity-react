@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './components/App'
 
-import loadingReducer from './reducers/loading'
+import { loadingReducer, authedUserReducer } from './reducers/shared'
 import questionsReducer from './reducers/questions'
 import usersReducer from './reducers/users'
 
@@ -15,6 +15,7 @@ import usersReducer from './reducers/users'
 const store = configureStore({
   reducer: {
     loading: loadingReducer,
+    authedUser: authedUserReducer,
     questions: questionsReducer,
     users: usersReducer
   }
@@ -23,10 +24,10 @@ const store = configureStore({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Provider store={store}>
         <App />
-      </BrowserRouter>
-    </Provider>
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>
 );

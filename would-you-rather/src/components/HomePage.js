@@ -20,9 +20,9 @@ class HomePage extends React.Component {
               </div>
 
               <div className='question-body-right'>
-                <div className='question-body-header'>Would you rather</div>
+                <div className='question-body-header'>Would you rather:</div>
                 <div className='question-body-text'>
-                  {questions[key]['optionOne']['text']} or {questions[key]['optionTwo']['text']}
+                  {questions[key]['optionOne']['text']} <strong>or</strong> {questions[key]['optionTwo']['text']}
                 </div>
                 <Link 
                   className='question-body-button'

@@ -51,7 +51,7 @@
     margin: 12px;
     padding: 8px;
     border-radius: 6px;
-    background-color: #0ce;
+    background-color: #0CE;
     display: block;
     color: black;
     text-align: center;
@@ -64,4 +64,35 @@
 .question-card .question-body .question-body-right .question-body-button:hover {
     background-color: #0af;
     font-weight: bold;
+}
+
+.question-card .question-body .question-body-right .question-option {
+    margin: 12px;
+    padding: 12px 16px 12px 16px;
+    border: 2px solid #C0C0C0;
+    border-radius: 12px;
+}
+
+.question-card .question-body .question-body-right .question-option-selected {
+    margin: 12px;
+    padding: 12px 16px 12px 16px;
+    border: 2px solid #0AF;
+    border-radius: 12px;
+    background-color: #0EF;
+}
+
+
+/* Shared */
+.progress-bar {
+    margin: 12px 4px 2px 4px;
+    height: 20px;
+    border: 3px solid #DDD;
+    border-radius: 6px;
+    background-color: #FFF;
+}
+
+.progress-bar div {
+    height: 100%;
+    background-color: #EAEAEA;
+    text-align: center;
 }
