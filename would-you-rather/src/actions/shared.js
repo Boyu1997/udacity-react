@@ -1,6 +1,8 @@
-import { _getQuestions, _getUsers, _saveQuestionAnswer } from './_DATA.js'
-import { addQuestionAnswer } from './questions.js'
-import { addUserAnswer } from './users.js'
+import { _getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer } from './_DATA.js'
+import { questionsAddAnswer, questionsCreateQuestion } from './questions.js'
+import { usersAddAnswer, usersCreateQuestion } from './users.js'
+
+import { hashCode } from '../helpers'
 
 export const RECEIVE_DATA = 'RECEIVE_DATA'
 
@@ -31,8 +33,25 @@ export function handleAddAnswer (authedUser, questionId, selectedOption) {
       'qid': questionId,
       'answer': selectedOption})
     .then(() => {
-        dispatch(addQuestionAnswer(authedUser, questionId, selectedOption))
-        dispatch(addUserAnswer(authedUser, questionId, selectedOption))
+        dispatch(questionsAddAnswer(authedUser, questionId, selectedOption))
+        dispatch(usersAddAnswer(authedUser, questionId, selectedOption))
+    })
+    .catch(() => {
+      alert('An error occurred, please try again.')
+    })
+  }
+}
+
+export function handleCreateQuestion (authedUser, optionOne, optionTwo) {
+  return (dispatch) => {
+    return _saveQuestion({
+      'author': authedUser,
+      'optionOneText': optionOne,
+      'optionTwoText': optionTwo})
+    .then(() => {
+      const questionId = hashCode(optionOne+optionTwo)
+      dispatch(questionsCreateQuestion(authedUser, questionId, optionOne, optionTwo))
+      dispatch(usersCreateQuestion(authedUser, questionId))
     })
     .catch(() => {
       alert('An error occurred, please try again.')

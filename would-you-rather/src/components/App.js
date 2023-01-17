@@ -4,6 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 
 import { handleInitialData } from '../actions/shared'
 
+import Nav from './Nav'
+import ConnectedCreateQuestionPage from './CreateQuestionPage'
 import ConnectedHomePage from './HomePage'
 import ConnectedQuestionPage from './QuestionPage'
 
@@ -23,9 +25,11 @@ class App extends React.Component {
 
     return (
       <div>
+        <Nav />
         <Routes>
-          <Route path="/" element={<ConnectedHomePage />} />
-          <Route path="/question/:questionId" element={<ConnectedQuestionPage />} />
+          <Route path='/' element={<ConnectedHomePage />} />
+          <Route path='/question/:questionId' element={<ConnectedQuestionPage />} />
+          <Route path='/add' element={<ConnectedCreateQuestionPage />} />
         </Routes>        
       </div>
     )

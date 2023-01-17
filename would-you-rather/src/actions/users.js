@@ -1,10 +1,19 @@
-export const ADD_USER_ANSWER = 'ADD_USER_ANSWER'
+export const USERS_ADD_ANSWER = 'USERS_ADD_ANSWER'
+export const USERS_CREATE_QUESTION = 'USERS_CREATE_QUESTION'
 
-export function addUserAnswer (authedUser, questionId, selectedOption) {
+export function usersAddAnswer (authedUser, questionId, selectedOption) {
   return {
-    type: ADD_USER_ANSWER,
+    type: USERS_ADD_ANSWER,
     authedUser,
     questionId,
     selectedOption
+  }
+}
+
+export function usersCreateQuestion (authedUser, questionId) {
+  return {
+    type: USERS_CREATE_QUESTION,
+    authedUser,
+    questionId
   }
 }

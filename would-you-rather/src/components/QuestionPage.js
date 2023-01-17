@@ -1,27 +1,8 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import {
-  useLocation,
-  useNavigate,
-  useParams,
-} from 'react-router-dom';
 
 import { handleAddAnswer } from '../actions/shared'
-  
-function withRouter(Component) {
-  function ComponentWithRouterProp(props) {
-    let location = useLocation();
-      let navigate = useNavigate();
-      let params = useParams();
-      return (
-        <Component
-          {...props}
-          router={{ location, navigate, params }}
-        />
-      );
-  }
-  return ComponentWithRouterProp;
-}
+import { withRouter } from '../helpers'
 
 
 class QuestionPage extends React.Component {
