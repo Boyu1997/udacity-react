@@ -171,6 +171,54 @@
 }
 
 
+/* User Card */
+.user-card {
+    padding: 10px;
+    margin: 16px;
+    border: 2px solid #C0C0C0;
+    border-radius: 8px;
+}
+
+.user-card .user-card-left {
+    width: 30%;
+    display: inline-block;
+}
+
+.user-card .user-card-left img {
+    border-radius: 50%;
+    padding: 4px;
+    width: 50%;
+    max-width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-card .user-card-left div {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px;
+}
+
+
+
+.user-card .user-card-right {
+    width: 70%;
+    display: inline-block;
+}
+
+.user-card .user-card-right .user-card-right-header {
+    padding: 8px 12px 8px 12px;
+    font-size: 18px;
+}
+
+.user-card .user-card-right .user-card-right-body {
+    padding: 6px 12px 6px 12px;
+    font-size: 14px;
+}
+
+
 /* Shared */
 .body-container {
     max-width: 800px;

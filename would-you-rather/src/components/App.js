@@ -8,6 +8,7 @@ import Nav from './Nav'
 import ConnectedCreateQuestionPage from './CreateQuestionPage'
 import ConnectedHomePage from './HomePage'
 import ConnectedQuestionPage from './QuestionPage'
+import LeaderBoardPage from './LeaderBoardPage'
 
 import './App.css'
 
@@ -30,6 +31,7 @@ class App extends React.Component {
           <Route path='/' element={<ConnectedHomePage />} />
           <Route path='/question/:questionId' element={<ConnectedQuestionPage />} />
           <Route path='/add' element={<ConnectedCreateQuestionPage />} />
+          <Route path='/leaderboard' element={<LeaderBoardPage users={this.props.users} />} />
         </Routes>        
       </div>
     )
@@ -37,5 +39,6 @@ class App extends React.Component {
 }
 
 export default connect((state) => ({
-  loading: state.loading
+  loading: state.loading,
+  users: state.users
 }))(App)
