@@ -55,7 +55,7 @@ class HomePage extends React.Component {
                     {questions[questionId]['optionOne']['text']} <strong>or</strong> {questions[questionId]['optionTwo']['text']}
                   </div>
                   <Link 
-                    className='question-body-button'
+                    className='generic-button'
                     to={`/question/${questionId}`}>
                     View Question
                   </Link>

@@ -93,7 +93,7 @@ class QuestionPage extends React.Component {
                   {questions[questionId]['optionTwo']['text']}
                 </div>
                 <div
-                  className='question-body-button'
+                  className='generic-button'
                   onClick={() => {
                     if (this.state.selectedOption === '') {
                       window.alert('No option selected, please choose one before submiting.')

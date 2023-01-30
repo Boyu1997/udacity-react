@@ -5,13 +5,28 @@ import { usersAddAnswer, usersCreateQuestion } from './users.js'
 import { hashCode } from '../helpers'
 
 export const RECEIVE_DATA = 'RECEIVE_DATA'
+export const AUTHED_USER_LOGOUT = 'AUTHED_USER_LOGOUT'
+export const AUTHED_USER_LOGIN = 'AUTHED_USER_LOGIN'
 
 
 function receiveData (questions, users) {
   return {
     type: RECEIVE_DATA,
     questions,
-    users,
+    users
+  }
+}
+
+function authedUserLogout () {
+  return {
+    type: AUTHED_USER_LOGOUT
+  }
+}
+
+function authedUserLogin (authedUser) {
+  return {
+    type: AUTHED_USER_LOGIN,
+    authedUser
   }
 }
 
@@ -56,5 +71,17 @@ export function handleCreateQuestion (authedUser, optionOne, optionTwo) {
     .catch(() => {
       alert('An error occurred, please try again.')
     })
+  }
+}
+
+export function handleAuthedUserLogout () {
+  return (dispatch) => {
+    dispatch(authedUserLogout())
+  }
+}
+
+export function handleAuthedUserLogin (authedUser) {
+  return (dispatch) => {
+    dispatch(authedUserLogin(authedUser))
   }
 }
