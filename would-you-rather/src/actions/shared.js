@@ -2,8 +2,6 @@ import { _getQuestions, _getUsers, _saveQuestion, _saveQuestionAnswer } from './
 import { questionsAddAnswer, questionsCreateQuestion } from './questions.js'
 import { usersAddAnswer, usersCreateQuestion } from './users.js'
 
-import { hashCode } from '../helpers'
-
 export const RECEIVE_DATA = 'RECEIVE_DATA'
 export const AUTHED_USER_LOGOUT = 'AUTHED_USER_LOGOUT'
 export const AUTHED_USER_LOGIN = 'AUTHED_USER_LOGIN'
@@ -63,10 +61,9 @@ export function handleCreateQuestion (authedUser, optionOne, optionTwo) {
       'author': authedUser,
       'optionOneText': optionOne,
       'optionTwoText': optionTwo})
-    .then(() => {
-      const questionId = hashCode(optionOne+optionTwo)
-      dispatch(questionsCreateQuestion(authedUser, questionId, optionOne, optionTwo))
-      dispatch(usersCreateQuestion(authedUser, questionId))
+    .then((question) => {
+      dispatch(questionsCreateQuestion(authedUser, question.id, optionOne, optionTwo))
+      dispatch(usersCreateQuestion(authedUser, question.id))
     })
     .catch(() => {
       alert('An error occurred, please try again.')

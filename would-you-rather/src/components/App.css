@@ -38,6 +38,7 @@
 
 .generic-button:hover {
     background-color: #0AF;
+    cursor: pointer;
 }
 
 
@@ -64,6 +65,7 @@
 .nav-bar .nav-bar-login {
     position: absolute;
     right: 0px;
+    cursor: pointer;
 }
 
 .nav-bar .nav-bar-login img {
@@ -90,6 +92,7 @@
 
 .home-nav-button:hover {
     background-color: #ACE;
+    cursor: pointer;
 }
 
 /* Question Card */
@@ -200,6 +203,7 @@
 
 .create-question-body .create-question-submit:hover {
     background-color: #0AF;
+    cursor: pointer;
 }
 
 
@@ -277,4 +281,16 @@
     font-size: 16px;
     min-width: 200px;
     padding: 8px;
+}
+
+
+/* Not Found Page */
+.not-found-container {
+    padding: 24px;
+    max-width: 600px;
+}
+
+.not-found-container .not-found-header {
+    font-size: 24px;
+    font-weight: bold;
 }

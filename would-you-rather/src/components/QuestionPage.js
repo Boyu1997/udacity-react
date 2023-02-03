@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { handleAddAnswer } from '../actions/shared'
 import { withRouter } from '../helpers'
 
+import NotFoundPage from './NotFoundPage'
+
 
 class QuestionPage extends React.Component {
   constructor(props) {
@@ -16,7 +18,8 @@ class QuestionPage extends React.Component {
     const { questionId } = this.props.router.params
 
     return (
-      <div className='question-card'>
+      questionId in questions ? (
+        <div className='question-card'>
         <div className='question-header'>Asked by {questions[questionId]['author']}</div>
         <div className='question-body'>
           <div className='question-body-left'>
@@ -110,6 +113,10 @@ class QuestionPage extends React.Component {
           </div>
         </div>
       </div>
+      ) : (
+        <NotFoundPage />
+      )
+      
     )
   }
 }

@@ -16,7 +16,7 @@ export function loadingReducer (state = true, action) {
 export function authedUserReducer (state = '', action) {
   switch(action.type) {
     case RECEIVE_DATA :
-      return 'sarahedo'
+      return ''
     case AUTHED_USER_LOGOUT:
       return ''
     case AUTHED_USER_LOGIN:

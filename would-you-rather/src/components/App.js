@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Routes, Route, redirect } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import { handleInitialData } from '../actions/shared'
 
@@ -10,6 +10,7 @@ import ConnectedCreateQuestionPage from './CreateQuestionPage'
 import ConnectedHomePage from './HomePage'
 import ConnectedQuestionPage from './QuestionPage'
 import LeaderBoardPage from './LeaderBoardPage'
+import NotFoundPage from './NotFoundPage'
 
 import './App.css'
 
@@ -37,6 +38,7 @@ class App extends React.Component {
           <Route path='/question/:questionId' element={<ConnectedQuestionPage />} />
           <Route path='/add' element={<ConnectedCreateQuestionPage />} />
           <Route path='/leaderboard' element={<LeaderBoardPage users={this.props.users} />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>        
       </div>
     )
