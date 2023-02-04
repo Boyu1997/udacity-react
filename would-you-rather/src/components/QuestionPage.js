@@ -43,9 +43,13 @@ class QuestionPage extends React.Component {
                       }%` }}
                     >
                       {`${
+                        questions[questionId]['optionOne']['votes'].length
+                      } ${
+                        questions[questionId]['optionOne']['votes'].length > 1 ? 'votes' : 'vote'
+                      } (${
                         Math.round(100 * questions[questionId]['optionOne']['votes'].length /
                         (questions[questionId]['optionOne']['votes'].length + questions[questionId]['optionTwo']['votes'].length))
-                      }%`}
+                      }%)`}
                     </div>
                   </div>
                 </div>
@@ -63,9 +67,13 @@ class QuestionPage extends React.Component {
                       }%` }}
                     >
                       {`${
+                        questions[questionId]['optionTwo']['votes'].length
+                      } ${
+                        questions[questionId]['optionTwo']['votes'].length > 1 ? 'votes' : 'vote'
+                      } (${
                         Math.round(100 * questions[questionId]['optionTwo']['votes'].length /
                         (questions[questionId]['optionOne']['votes'].length + questions[questionId]['optionTwo']['votes'].length))
-                      }%`}
+                      }%)`}
                     </div>
                   </div>
                 </div>
